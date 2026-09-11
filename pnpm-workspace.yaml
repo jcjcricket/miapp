@@ -1,0 +1,5 @@
+packages:
+  - 'webapp'
+  - 'backend'
+allowBuilds:
+  esbuild: true
