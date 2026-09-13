@@ -10,7 +10,6 @@
     "preview": "vite preview",
     "prettify": "prettier --loglevel warn --cache --write '{src/**/*,*}.{ts,tsx,js,json,yml,scss}' '!**/{node_modules,dist}/**/*'",
     "types": "tsc --noEmit --project ./tsconfig.json && tsc --noEmit --project ./tsconfig.node.json"
-    
   },
   "dependencies": {
     "@miapp/backend": "workspace:*",
@@ -18,7 +17,8 @@
     "@trpc/client": "^11.18.0",
     "@trpc/react-query": "^11.18.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.18.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
