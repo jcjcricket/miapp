@@ -13,7 +13,8 @@
     "preview": "vite preview",
     "prettify": "prettier --log-level warn --cache --write src package.json tsconfig.json tsconfig.node.json vite.config.ts index.html .eslintrc.yml .lintstagedrc.yml",
     "format:check": "prettier --log-level warn --cache --check src package.json tsconfig.json tsconfig.node.json vite.config.ts index.html .eslintrc.yml .lintstagedrc.yml",
-    "types": "tsc --noEmit --project ./tsconfig.json && tsc --noEmit --project ./tsconfig.node.json"
+    "types": "tsc --noEmit --project ./tsconfig.json && tsc --noEmit --project ./tsconfig.node.json",
+    "stylecheck": "sass --update -q ./src:./node_modules/.cache/.stylecheckcache"
   },
   "dependencies": {
     "@miapp/backend": "workspace:*",
