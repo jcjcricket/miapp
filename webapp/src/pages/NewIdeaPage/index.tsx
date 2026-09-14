@@ -1,9 +1,41 @@
-import { useFormik } from 'formik'
+import { useFormik, type FormikErrors } from 'formik'
+import { z } from 'zod'
 import { Input } from '../../components/Input'
 import { Segment } from '../../components/Segment'
 import { Textarea } from '../../components/TextArea'
+
+const ideaSchema = z.object({
+  name: z.string().min(1),
+  nick: z
+    .string()
+    .min(1)
+    .regex(/^[a-z0-9-]+$/, 'Nick may contain only lowercase letters, numbers and dashes'),
+  description: z.string().min(1),
+  text: z.string().min(100, 'Text should be at least 100 characters long'),
+})
+
+type IdeaFormValues = z.infer<typeof ideaSchema>
+
+const validateIdea = (values: IdeaFormValues): FormikErrors<IdeaFormValues> => {
+  const result = ideaSchema.safeParse(values)
+
+  if (result.success) {
+    return {}
+  }
+
+  return result.error.issues.reduce<FormikErrors<IdeaFormValues>>((errors, issue) => {
+    const field = issue.path[0]
+
+    if (typeof field === 'string' && field in values) {
+      errors[field as keyof IdeaFormValues] = issue.message
+    }
+
+    return errors
+  }, {})
+}
+
 export const NewIdeaPage = () => {
-  const formik = useFormik({
+  const formik = useFormik<IdeaFormValues>({
     initialValues: {
       name: '',
       nick: '',
@@ -13,26 +45,7 @@ export const NewIdeaPage = () => {
     onSubmit: (values) => {
       console.info('Submitted', values)
     },
-    validate: (values) => {
-      const errors: Partial<typeof values> = {}
-      if (!values.name) {
-        errors.name = 'Name is required'
-      }
-      if (!values.nick) {
-        errors.nick = 'Nick is required'
-      } else if (!values.nick.match(/^[a-z0-9-]+$/)) {
-        errors.nick = 'Nick may contain only lowercase letters, numbers and dashes'
-      }
-      if (!values.description) {
-        errors.description = 'Description is required'
-      }
-      if (!values.text) {
-        errors.text = 'Text is required'
-      } else if (values.text.length < 100) {
-        errors.text = 'Text should be at least 100 characters long'
-      }
-      return errors
-    },
+    validate: validateIdea,
   })
 
   return (

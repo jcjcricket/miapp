@@ -99,6 +99,9 @@ importers:
       formik:
         specifier: ^2.4.9
         version: 2.4.9(@types/react@18.3.31)(react@18.3.1)
+      formik-validator-zod:
+        specifier: ^2.2.0
+        version: 2.2.0(formik@2.4.9(@types/react@18.3.31)(react@18.3.1))(zod@3.25.76)
       include-media:
         specifier: ^2.0.0
         version: 2.0.0
@@ -117,6 +120,12 @@ importers:
       sass:
         specifier: ^1.104.1
         version: 1.104.1
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+      zod-formik-adapter:
+        specifier: ^2.0.0
+        version: 2.0.0(formik@2.4.9(@types/react@18.3.31)(react@18.3.1))(zod@3.25.76)
     devDependencies:
       '@types/react':
         specifier: ^18.2.15
@@ -1806,6 +1815,10 @@ packages:
     resolution: {integrity: sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==}
     engines: {node: '>=0.10.0'}
 
+  deepmerge@4.3.1:
+    resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
+    engines: {node: '>=0.10.0'}
+
   define-data-property@1.1.4:
     resolution: {integrity: sha512-rBMvIzlpA8v6E+SJZoo++HAYqsLrkg7MSfIinMPFhmkorw7X+dOXVJQs+QT69zGkzMyfDnIMN2Wid1+NbL3T+A==}
     engines: {node: '>= 0.4'}
@@ -2180,6 +2193,12 @@ packages:
   foreground-child@3.3.1:
     resolution: {integrity: sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw==}
     engines: {node: '>=14'}
+
+  formik-validator-zod@2.2.0:
+    resolution: {integrity: sha512-LSH3NvYZ4jyrvmeYUhIUuje1tScnsIwApqvD/c9Yh2Mdbe/dZvW3wJJA+qkpYRwfTkuByW5FSwVBLm556tZTGw==}
+    peerDependencies:
+      formik: ^2.2.9
+      zod: ^3.19.1
 
   formik@2.4.9:
     resolution: {integrity: sha512-5nI94BMnlFDdQRBY4Sz39WkhxajZJ57Fzs8wVbtsQlm5ScKIR1QLYqv/ultBnobObtlUyxpxoLodpixrsf36Og==}
@@ -3577,6 +3596,15 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  zod-formik-adapter@2.0.0:
+    resolution: {integrity: sha512-cLykLmQgmCmhx8C/mwR+rUNKRw6kEukejGRrByB+56zV1XtHF+xmOiQ2Lp2w5R0BdN3z42QKFekOI0Vy39vR8Q==}
+    peerDependencies:
+      formik: ^2.2.9
+      zod: 4.x
+
+  zod@3.25.76:
+    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
   zod@4.6.2:
     resolution: {integrity: sha512-lh5RCAGFa1Cm2hjtNwLQhSs/AsqdWnTQaBER9fEwN/88pSh7KOtJavtBx/0VlkN/uFd61SwYmljLMDAsHlvzBQ==}
@@ -5546,6 +5574,8 @@ snapshots:
 
   deepmerge@2.2.1: {}
 
+  deepmerge@4.3.1: {}
+
   define-data-property@1.1.4:
     dependencies:
       es-define-property: 1.0.1
@@ -6221,6 +6251,12 @@ snapshots:
     dependencies:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
+
+  formik-validator-zod@2.2.0(formik@2.4.9(@types/react@18.3.31)(react@18.3.1))(zod@3.25.76):
+    dependencies:
+      deepmerge: 4.3.1
+      formik: 2.4.9(@types/react@18.3.31)(react@18.3.1)
+      zod: 3.25.76
 
   formik@2.4.9(@types/react@18.3.31)(react@18.3.1):
     dependencies:
@@ -7700,5 +7736,12 @@ snapshots:
   yn@3.1.1: {}
 
   yocto-queue@0.1.0: {}
+
+  zod-formik-adapter@2.0.0(formik@2.4.9(@types/react@18.3.31)(react@18.3.1))(zod@3.25.76):
+    dependencies:
+      formik: 2.4.9(@types/react@18.3.31)(react@18.3.1)
+      zod: 3.25.76
+
+  zod@3.25.76: {}
 
   zod@4.6.2: {}

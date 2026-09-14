@@ -22,12 +22,15 @@
     "@trpc/client": "^11.18.0",
     "@trpc/react-query": "^11.18.0",
     "formik": "^2.4.9",
+    "formik-validator-zod": "^2.2.0",
     "include-media": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.18.3",
     "reset-css": "^5.0.2",
-    "sass": "^1.104.1"
+    "sass": "^1.104.1",
+    "zod": "^3.25.76",
+    "zod-formik-adapter": "^2.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
