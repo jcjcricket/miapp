@@ -9,8 +9,6 @@
     "types": "concurrently \"pnpm --filter @miapp/backend types\" \"pnpm --filter @miapp/webapp types\"",
     "prettify": "pnpm -r --parallel prettify",
     "lint": "concurrently \"pnpm --filter @miapp/backend lint\" \"pnpm --filter @miapp/webapp lint\"",
-    "lint:fix": "concurrently \"pnpm --filter @miapp/backend lint:fix\" \"pnpm --filter @miapp/webapp lint:fix\"",
-    "format:check": "pnpm -r --parallel format:check",
     "prepare": "husky install"
   },
   "devDependencies": {

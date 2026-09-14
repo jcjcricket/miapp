@@ -1,6 +1,7 @@
 @import '../../styles/_vars.scss';
 @import '../../styles/_mixins.scss';
 $breakpoint: '<=900px';
+
 .layout {
   display: flex;
   flex-flow: row nowrap;
@@ -8,6 +9,7 @@ $breakpoint: '<=900px';
   @include media($breakpoint) {
     flex-flow: column nowrap;
   }
+
   .navigation {
     height: 100%;
     overflow: auto;
@@ -21,22 +23,26 @@ $breakpoint: '<=900px';
       border-right: none;
       border-bottom: 1px solid $black;
     }
+
     .logo {
       font-weight: bold;
       font-size: 20px;
       margin-bottom: 10px;
     }
+
     .menu {
       .item {
         &:not(:first-child) {
           margin-top: 5px;
         }
+
         .link {
           @include link;
         }
       }
     }
   }
+
   .content {
     height: 100%;
     overflow: auto;

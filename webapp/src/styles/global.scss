@@ -1,5 +1,6 @@
 @import '../../node_modules/reset-css/sass/_reset.scss';
 @import './_vars.scss';
+
 html,
 body,
 #root {
@@ -8,6 +9,7 @@ body,
   width: 100%;
   position: relative;
 }
+
 body {
   font-family: $defaultFontFamily;
   font-size: $defaultFontSize;
@@ -15,11 +17,13 @@ body {
   color: $defaultTextColor;
   line-height: $defaultLineHeight;
 }
+
 *,
 *:before,
 *:after {
   box-sizing: border-box;
 }
+
 a {
   text-decoration: none;
 }
