@@ -14,13 +14,17 @@ export const ViewIdeaPage = () => {
   if (isError) {
     return <span>Error: {error.message}</span>
   }
+
+  if (!data) {
+    return <span>Idea not found</span>
+  }
   if (!data.idea) {
     return <span>Idea not found</span>
   }
 
   return (
     <div>
-      <h1>{data.idea.name}</h1>
+      <h1>{!data.idea.name}</h1>
       <p>{data.idea.description}</p>
       <div dangerouslySetInnerHTML={{ __html: data.idea.text }} />
     </div>
