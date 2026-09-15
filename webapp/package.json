@@ -29,7 +29,7 @@
     "react-router-dom": "^7.18.3",
     "reset-css": "^5.0.2",
     "sass": "^1.104.1",
-    "zod": "^3.25.76",
+    "zod": "^4.6.5",
     "zod-formik-adapter": "^2.0.0"
   },
   "devDependencies": {

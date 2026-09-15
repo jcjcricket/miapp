@@ -1,24 +1,25 @@
+import { zCreateIdeaTrpcInput } from '@miapp/backend/src/router/createIdea/input'
 import { useFormik, type FormikErrors } from 'formik'
-import { z } from 'zod'
+import { type z } from 'zod'
 import { Input } from '../../components/Input'
 import { Segment } from '../../components/Segment'
 import { Textarea } from '../../components/TextArea'
 import { trpc } from '../../lib/trpc'
 
-const ideaSchema = z.object({
-  name: z.string().min(1),
-  nick: z
-    .string()
-    .min(1)
-    .regex(/^[a-z0-9-]+$/, 'Nick may contain only lowercase letters, numbers and dashes'),
-  description: z.string().min(1),
-  text: z.string().min(100, 'Text should be at least 100 characters long'),
-})
+// const ideaSchema = z.object({
+//   name: z.string().min(1),
+//   nick: z
+//     .string()
+//     .min(1)
+//     .regex(/^[a-z0-9-]+$/, 'Nick may contain only lowercase letters, numbers and dashes'),
+//   description: z.string().min(1),
+//   text: z.string().min(100, 'Text should be at least 100 characters long'),
+// })
 
-type IdeaFormValues = z.infer<typeof ideaSchema>
+type IdeaFormValues = z.infer<typeof zCreateIdeaTrpcInput>
 
 const validateIdea = (values: IdeaFormValues): FormikErrors<IdeaFormValues> => {
-  const result = ideaSchema.safeParse(values)
+  const result = zCreateIdeaTrpcInput.safeParse(values)
 
   if (result.success) {
     return {}
