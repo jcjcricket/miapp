@@ -24,5 +24,5 @@
     "target": "ES2021",
     "types": ["node"]
   },
-  "include": ["src"]
+  "include": ["src", "../backend/src"]
 }

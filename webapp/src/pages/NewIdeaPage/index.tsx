@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { Input } from '../../components/Input'
 import { Segment } from '../../components/Segment'
 import { Textarea } from '../../components/TextArea'
+import { trpc } from '../../lib/trpc'
 
 const ideaSchema = z.object({
   name: z.string().min(1),
@@ -35,6 +36,7 @@ const validateIdea = (values: IdeaFormValues): FormikErrors<IdeaFormValues> => {
 }
 
 export const NewIdeaPage = () => {
+  const createIdea = (trpc as any).createIdea.useMutation()
   const formik = useFormik<IdeaFormValues>({
     initialValues: {
       name: '',
@@ -42,8 +44,8 @@ export const NewIdeaPage = () => {
       description: '',
       text: '',
     },
-    onSubmit: (values) => {
-      console.info('Submitted', values)
+    onSubmit: async (values) => {
+      await createIdea.mutateAsync(values)
     },
     validate: validateIdea,
   })
